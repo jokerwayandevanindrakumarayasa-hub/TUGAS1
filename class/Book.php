@@ -15,4 +15,9 @@ class Book {
     public function __construct() {
         $this->db = new Database();
     }
+    public function getAll() {
+        $sql = "SELECT * FROM buku ORDER BY id DESC";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
