@@ -52,7 +52,7 @@ class Book {
         ];
         return $this->db->query($sql, $params);
     }
-    
+
     public function update() {
         $sql = "UPDATE buku SET 
                 judul = :judul, 
@@ -75,5 +75,16 @@ class Book {
 
         $sql .= " WHERE id = :id";
         return $this->db->query($sql, $params);
+    }
+    public function delete($id) {
+        $this->setById($id);
+        
+        // Hapus file fisik jika ada
+        if ($this->cover_path && file_exists($this->cover_path)) {
+            unlink($this->cover_path);
+        }
+
+        $sql = "DELETE FROM buku WHERE id = :id";
+        return $this->db->query($sql, ['id' => $id]);
     }
 }

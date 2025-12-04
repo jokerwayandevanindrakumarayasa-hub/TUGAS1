@@ -41,5 +41,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Gagal menyimpan data ke database.";
     }
 } else {
-    header("Location: create.php");
+    header("Location: create.php");
 }

@@ -30,6 +30,7 @@ $prefill = Utility::getPrefill(['judul', 'penulis', 'tahun_terbit', 'kategori'])
             <option value="Novel" <?= $prefill['kategori'] == 'Novel' ? 'selected' : '' ?>>Novel</option>
             <option value="Teknologi" <?= $prefill['kategori'] == 'Teknologi' ? 'selected' : '' ?>>Teknologi</option>
             <option value="Sejarah" <?= $prefill['kategori'] == 'Sejarah' ? 'selected' : '' ?>>Sejarah</option>
+            <option value="Agama" <?= $prefill['kategori'] == 'Agama' ? 'selected' : '' ?>>Agama</option>
         </select>
 
         <label>Cover Buku (Gambar):</label>

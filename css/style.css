@@ -97,7 +97,7 @@ input[type="text"], input[type="number"], select, input[type="file"] {
 }
 
 
-button {
+button, .btn-primary {
     background-color: #27ae60;
     color: white;
     border: none;
@@ -109,6 +109,6 @@ button {
     text-decoration: none;
     display: inline-block;
 }
-button:hover { 
+button:hover, .btn-primary:hover { 
     background-color: #219150; 
     transition: background-color 0.3s ease;}
