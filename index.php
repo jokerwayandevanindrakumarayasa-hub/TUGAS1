@@ -14,7 +14,7 @@ $data = $book->getAll();
     <?php Utility::showNav(); ?>
     
     <h1>Daftar Koleksi Buku</h1>
-
+    <div><?php Utility::showFlash()?></div>
     <table>
         <thead>
             <tr>

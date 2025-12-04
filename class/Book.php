@@ -20,6 +20,25 @@ class Book {
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function setById($id) {
+        $sql = "SELECT * FROM buku WHERE id = :id";
+        $stmt = $this->db->query($sql, ['id' => $id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            $this->id = $row['id'];
+            $this->judul = $row['judul'];
+            $this->penulis = $row['penulis'];
+            $this->tahun_terbit = $row['tahun_terbit'];
+            $this->kategori = $row['kategori'];
+            $this->cover_path = $row['cover_path'];
+            return true;
+        }
+        return false;
+    }
+
+
     
     public function create() {
         $sql = "INSERT INTO buku (judul, penulis, tahun_terbit, kategori, cover_path) 
