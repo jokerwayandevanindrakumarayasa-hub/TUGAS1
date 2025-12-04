@@ -20,4 +20,17 @@ class Book {
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    public function create() {
+        $sql = "INSERT INTO buku (judul, penulis, tahun_terbit, kategori, cover_path) 
+                VALUES (:judul, :penulis, :tahun, :kategori, :cover)";
+        $params = [
+            'judul' => $this->judul,
+            'penulis' => $this->penulis,
+            'tahun' => $this->tahun_terbit,
+            'kategori' => $this->kategori,
+            'cover' => $this->cover_path
+        ];
+        return $this->db->query($sql, $params);
+    }
 }
