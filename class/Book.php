@@ -52,4 +52,28 @@ class Book {
         ];
         return $this->db->query($sql, $params);
     }
+    
+    public function update() {
+        $sql = "UPDATE buku SET 
+                judul = :judul, 
+                penulis = :penulis, 
+                tahun_terbit = :tahun, 
+                kategori = :kategori";
+        $params = [
+            'judul' => $this->judul,
+            'penulis' => $this->penulis,
+            'tahun' => $this->tahun_terbit,
+            'kategori' => $this->kategori,
+            'id' => $this->id
+        ];
+
+        // Jika ada cover baru, update field cover_path
+        if (!empty($this->cover_path)) {
+            $sql .= ", cover_path = :cover";
+            $params['cover'] = $this->cover_path;
+        }
+
+        $sql .= " WHERE id = :id";
+        return $this->db->query($sql, $params);
+    }
 }
